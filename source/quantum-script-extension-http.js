@@ -10,6 +10,7 @@
 Script.requireExtension("File");
 Script.requireExtension("Socket");
 Script.requireExtension("URL");
+Script.requireExtension("JSON");
 
 HTTP = {};
 
