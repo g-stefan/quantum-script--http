@@ -18,5 +18,5 @@ cmdX(){
 }
 
 cmdX file-to-cs --touch=source/quantum-script-extension-http.cpp --file-in=source/quantum-script-extension-http.js --file-out=source/quantum-script-extension-http.src --is-string --name=extensionHTTPSource
-cmdX xyo-cc --mode=$ACTION @util/quantum-script-extension-http.static.compile.info
-cmdX xyo-cc --mode=$ACTION @util/quantum-script-extension-http.dynamic.compile.info
+cmdX xyo-cc --mode=$ACTION @util/quantum-script-extension-http.static.compile
+cmdX xyo-cc --mode=$ACTION @util/quantum-script-extension-http.dynamic.compile
