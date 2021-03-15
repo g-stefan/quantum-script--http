@@ -1,8 +1,6 @@
---dll qse-http
+--lib qse-http
 --project-base=quantum-script-extension-http
---source-is-separate
---dll-no-version
---use-project=quantum-script
+--build-include
+--use-project=quantum-script.static
 --install-dev
 --install-inc=quantum-script-extension
---no-version
