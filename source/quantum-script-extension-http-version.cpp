@@ -15,10 +15,10 @@ namespace Quantum {
 			namespace HTTP {
 				namespace Version {
 
-					static const char *version_ = "2.4.0";
-					static const char *build_ = "21";
-					static const char *versionWithBuild_ = "2.4.0.21";
-					static const char *datetime_ = "2021-11-22 17:08:00";
+					static const char *version_ = "2.7.0";
+					static const char *build_ = "22";
+					static const char *versionWithBuild_ = "2.7.0.22";
+					static const char *datetime_ = "2022-01-01 21:19:41";
 
 					const char *version() {
 						return version_;
