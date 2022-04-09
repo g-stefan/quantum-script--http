@@ -14,7 +14,7 @@
 #include "quantum-script-extension-http-license.hpp"
 #include "quantum-script-extension-http.hpp"
 #ifndef QUANTUM_SCRIPT_EXTENSION_HTTP_NO_VERSION
-#include "quantum-script-extension-http-version.hpp"
+#	include "quantum-script-extension-http-version.hpp"
 #endif
 
 #include "quantum-script-extension-http.src"
@@ -46,7 +46,6 @@ namespace Quantum {
 					executive->setExtensionPublic(extensionId, true);
 
 					executive->compileStringX(extensionHTTPSource);
-
 				};
 
 			};
@@ -59,4 +58,3 @@ extern "C" QUANTUM_SCRIPT_EXTENSION_HTTP_EXPORT void quantumScriptExtension(Quan
 	Quantum::Script::Extension::HTTP::initExecutive(executive, extensionId);
 };
 #endif
-
