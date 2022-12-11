@@ -1,6 +1,0 @@
---lib qse-http
---project-base=quantum-script-extension-http
---build-include
---use-project=quantum-script.static
---install-dev
---install-inc=quantum-script-extension
