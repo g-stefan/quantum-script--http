@@ -1,15 +1,19 @@
 {
-	"project": {
-		"name":"quantum-script--http",
-		"type":"xyo-cpp",
-		"make" : "lib-and-dll",
-		"SPDX-License-Identifier": "MIT",
-		"sourcePath" : "XYO/QuantumScript.Extension/HTTP",
-		"dependency" : [
-			"quantum-script",
-			"quantum-script--console"
+	"solution": {
+		"name" : "quantum-script--http",
+		"type" : "xyo-cpp",
+		"projects": [
+			{
+				"name" : "quantum-script--http",
+				"make" : "lib-and-dll",
+				"SPDX-License-Identifier": "MIT",
+				"sourcePath" : "XYO/QuantumScript.Extension/HTTP",
+				"dependency" : [
+					"quantum-script",
+					"quantum-script--console"
+				]
+			}
 		],
-		"hasRelease" : true,
-		"githubRelease" : true
+		"hasGithub" : true
 	}
 }
