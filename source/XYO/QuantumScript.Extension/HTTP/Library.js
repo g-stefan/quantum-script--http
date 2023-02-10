@@ -50,9 +50,9 @@ HTTP.json = function(url, data, headers, mode) {
 	if(socket.openClient(host)) {
 		contentLength = Infinity;
 		if(URL.getQuery(url)) {
-			socket.writeLn(mode + " " + URL.getPathAndFileName(url) + "?" + URL.getQuery(url) + " HTTP/1.1");
+			socket.writeLn(mode + " " + URL.getPathAndFileName(url) + "?" + URL.getQuery(url) + " HTTP/1.0");
 		} else {
-			socket.writeLn(mode + " " + URL.getPathAndFileName(url) + " HTTP/1.1");
+			socket.writeLn(mode + " " + URL.getPathAndFileName(url) + " HTTP/1.0");
 		};
 		socket.writeLn("Host: " + URL.getHostNameAndPort(url));
 		if(!Script.isNil(headers)) {
@@ -129,9 +129,9 @@ HTTP.downloadFile = function(url, fileName, headers, mode, content) {
 	if(socket.openClient(host)) {
 		contentLength = Infinity;
 		if(URL.getQuery(url)) {
-			socket.writeLn(mode + " " + URL.getPathAndFileName(url) + "?" + URL.getQuery(url) + " HTTP/1.1");
+			socket.writeLn(mode + " " + URL.getPathAndFileName(url) + "?" + URL.getQuery(url) + " HTTP/1.0");
 		} else {
-			socket.writeLn(mode + " " + URL.getPathAndFileName(url) + " HTTP/1.1");
+			socket.writeLn(mode + " " + URL.getPathAndFileName(url) + " HTTP/1.0");
 		};
 		socket.writeLn("Host: " + URL.getHostNameAndPort(url));
 		socket.writeLn("Connection: close");
@@ -205,9 +205,9 @@ HTTP.post = function(url, data, headers, mode) {
 	if(socket.openClient(host)) {
 		contentLength = Infinity;
 		if(URL.getQuery(url)) {
-			socket.writeLn(mode + " " + URL.getPathAndFileName(url) + "?" + URL.getQuery(url) + " HTTP/1.1");
+			socket.writeLn(mode + " " + URL.getPathAndFileName(url) + "?" + URL.getQuery(url) + " HTTP/1.0");
 		} else {
-			socket.writeLn(mode + " " + URL.getPathAndFileName(url) + " HTTP/1.1");
+			socket.writeLn(mode + " " + URL.getPathAndFileName(url) + " HTTP/1.0");
 		};
 		socket.writeLn("Host: " + URL.getHostNameAndPort(url));
 		if(!Script.isNil(headers)) {
@@ -286,9 +286,9 @@ HTTP.postRequest = function(url, data, headers, mode) {
 	if(socket.openClient(host)) {
 		contentLength = Infinity;
 		if(URL.getQuery(url)) {
-			socket.writeLn(mode + " " + URL.getPathAndFileName(url) + "?" + URL.getQuery(url) + " HTTP/1.1");
+			socket.writeLn(mode + " " + URL.getPathAndFileName(url) + "?" + URL.getQuery(url) + " HTTP/1.0");
 		} else {
-			socket.writeLn(mode + " " + URL.getPathAndFileName(url) + " HTTP/1.1");
+			socket.writeLn(mode + " " + URL.getPathAndFileName(url) + " HTTP/1.0");
 		};
 		socket.writeLn("Host: " + URL.getHostNameAndPort(url));
 		if(!Script.isNil(headers)) {
