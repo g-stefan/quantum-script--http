@@ -19,13 +19,13 @@ namespace XYO::QuantumScript::Extension::HTTP {
 	void initExecutive(Executive *executive, void *extensionId) {
 
 		String info = "HTTP\r\n";
-		info << License::shortLicense();
+		info << License::shortLicense().c_str();
 
 		executive->setExtensionName(extensionId, "HTTP");
 		executive->setExtensionInfo(extensionId, info);
 		executive->setExtensionVersion(extensionId, Extension::HTTP::Version::versionWithBuild());
 		executive->setExtensionPublic(extensionId, true);
-		
+
 		executive->compileStringX(librarySource);
 	};
 
