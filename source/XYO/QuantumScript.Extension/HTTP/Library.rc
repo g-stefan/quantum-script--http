@@ -8,4 +8,4 @@
 #include <XYO/QuantumScript.Extension/HTTP/Copyright.rh>
 #include <XYO/QuantumScript.Extension/HTTP/Version.rh>
 
-XYO_APPLICATION_VERSION_INFO(XYO_QUANTUMSCRIPT_EXTENSION_HTTP,"quantum-script--http.dll","Quantum Script Extension HTTP")
+XYO_PLATFORM_VERSION_INFO(XYO_QUANTUMSCRIPT_EXTENSION_HTTP,"quantum-script--http.dll","Quantum Script Extension HTTP")
