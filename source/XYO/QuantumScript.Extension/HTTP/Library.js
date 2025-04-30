@@ -1,7 +1,7 @@
 // Quantum Script Extension HTTP
-// Copyright (c) 2016-2024 Grigore Stefan <g_stefan@yahoo.com>
+// Copyright (c) 2016-2025 Grigore Stefan <g_stefan@yahoo.com>
 // MIT License (MIT) <http://opensource.org/licenses/MIT>
-// SPDX-FileCopyrightText: 2016-2024 Grigore Stefan <g_stefan@yahoo.com>
+// SPDX-FileCopyrightText: 2016-2025 Grigore Stefan <g_stefan@yahoo.com>
 // SPDX-License-Identifier: MIT
 
 Script.requireExtension("File");
@@ -30,7 +30,7 @@ HTTP.json = function(url, data, headers, mode) {
 	var response;
 	var header;
 
-	if(URL.getSchemeName(url).toUpperCaseAscii() != "HTTP") {
+	if(URL.getSchemeName(url).toUpperCaseASCII() != "HTTP") {
 		return null;
 	};
 	host = URL.getHostNameAndPort(url);
@@ -45,7 +45,7 @@ HTTP.json = function(url, data, headers, mode) {
 	if(Script.isNil(mode)) {
 		mode = "POST";
 	};
-	mode = mode.toUpperCaseAscii();
+	mode = mode.toUpperCaseASCII();
 
 	if(socket.openClient(host)) {
 		contentLength = Infinity;
@@ -108,7 +108,7 @@ HTTP.downloadFile = function(url, fileName, headers, mode, content) {
 		fileName = Shell.getFileName(URL.getPathAndFileName(url));
 	};
 
-	if(URL.getSchemeName(url).toUpperCaseAscii() != "HTTP") {
+	if(URL.getSchemeName(url).toUpperCaseASCII() != "HTTP") {
 		return false;
 	};
 
@@ -124,7 +124,7 @@ HTTP.downloadFile = function(url, fileName, headers, mode, content) {
 	if(Script.isNil(mode)) {
 		mode = "GET";
 	};
-	mode = mode.toUpperCaseAscii();
+	mode = mode.toUpperCaseASCII();
 
 	if(socket.openClient(host)) {
 		contentLength = Infinity;
@@ -185,7 +185,7 @@ HTTP.post = function(url, data, headers, mode) {
 	var response;
 	var header;
 
-	if(URL.getSchemeName(url).toUpperCaseAscii() != "HTTP") {
+	if(URL.getSchemeName(url).toUpperCaseASCII() != "HTTP") {
 		return null;
 	};
 	host = URL.getHostNameAndPort(url);
@@ -200,7 +200,7 @@ HTTP.post = function(url, data, headers, mode) {
 	if(Script.isNil(mode)) {
 		mode = "POST";
 	};
-	mode = mode.toUpperCaseAscii();
+	mode = mode.toUpperCaseASCII();
 
 	if(socket.openClient(host)) {
 		contentLength = Infinity;
@@ -266,7 +266,7 @@ HTTP.postRequest = function(url, data, headers, mode) {
 	var response;
 	var header;
 
-	if(URL.getSchemeName(url).toUpperCaseAscii() != "HTTP") {
+	if(URL.getSchemeName(url).toUpperCaseASCII() != "HTTP") {
 		return null;
 	};
 	host = URL.getHostNameAndPort(url);
@@ -281,7 +281,7 @@ HTTP.postRequest = function(url, data, headers, mode) {
 	if(Script.isNil(mode)) {
 		mode = "POST";
 	};
-	mode = mode.toUpperCaseAscii();
+	mode = mode.toUpperCaseASCII();
 
 	if(socket.openClient(host)) {
 		contentLength = Infinity;
