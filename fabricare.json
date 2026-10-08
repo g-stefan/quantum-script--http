@@ -1,5 +1,6 @@
 {
 	"solution": {
+		"namespace" : "xyo",
 		"name" : "quantum-script--http",
 		"type" : "xyo-cpp",
 		"projects": [
@@ -11,6 +12,22 @@
 				"dependency" : [
 					"quantum-script",
 					"quantum-script--console"
+				]
+			},
+			{
+				"name" : "test.01",
+				"make" : "exe",
+				"category" : "test",
+				"SPDX-License-Identifier": "Unlicense",
+				"dependency" : [
+					"quantum-script--http",
+					"quantum-script--buffer",
+					"quantum-script--file",
+					"quantum-script--socket",
+					"quantum-script--url",
+					"quantum-script--json",
+					"quantum-script--shell",
+					"quantum-script--shellfind"
 				]
 			}
 		]

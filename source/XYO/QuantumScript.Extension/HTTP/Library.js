@@ -28,9 +28,13 @@ HTTP.json = function(url, data, headers, mode) {
 	var host;
 	var json = JSON.encode(data);
 	var response;
-	var header;
+	var scheme;
 
-	if(URL.getSchemeName(url).toUpperCaseASCII() != "HTTP") {
+	scheme = URL.getSchemeName(url);
+	if(Script.isNil(scheme)) {
+		return null;
+	};
+	if(scheme.toUpperCaseASCII() != "HTTP") {
 		return null;
 	};
 	host = URL.getHostNameAndPort(url);
@@ -38,7 +42,7 @@ HTTP.json = function(url, data, headers, mode) {
 		return null;
 	};
 
-	if(host.indexOf(":") < 0) {
+	if((host.indexOf(":") < 0) || (host.substring(host.length - 1, 1) == "]")) {
 		host += ":80";
 	};
 
@@ -76,7 +80,7 @@ HTTP.json = function(url, data, headers, mode) {
 			};
 			decodedResponse = this.decodeHeaderLine(response);
 			if(decodedResponse) {
-				if(decodedResponse[0] == "Content-Length") {
+				if(decodedResponse[0].toLowerCaseASCII() == "content-length") {
 					contentLength = Convert.toNumber(decodedResponse[1]);
 				};
 			};
@@ -103,12 +107,21 @@ HTTP.downloadFile = function(url, fileName, headers, mode, content) {
 	var host;
 	var response;
 	var file;
+	var scheme;
 
 	if(Script.isNil(fileName)) {
+		Script.requireExtension("Shell");
 		fileName = Shell.getFileName(URL.getPathAndFileName(url));
 	};
+	if(Script.isNil(fileName) || (fileName.length == 0)) {
+		return false;
+	};
 
-	if(URL.getSchemeName(url).toUpperCaseASCII() != "HTTP") {
+	scheme = URL.getSchemeName(url);
+	if(Script.isNil(scheme)) {
+		return false;
+	};
+	if(scheme.toUpperCaseASCII() != "HTTP") {
 		return false;
 	};
 
@@ -117,7 +130,7 @@ HTTP.downloadFile = function(url, fileName, headers, mode, content) {
 		return false;
 	};
 
-	if(host.indexOf(":") < 0) {
+	if((host.indexOf(":") < 0) || (host.substring(host.length - 1, 1) == "]")) {
 		host += ":80";
 	};
 
@@ -155,7 +168,7 @@ HTTP.downloadFile = function(url, fileName, headers, mode, content) {
 			};
 			decodedResponse = this.decodeHeaderLine(response);
 			if(decodedResponse) {
-				if(decodedResponse[0] == "Content-Length") {
+				if(decodedResponse[0].toLowerCaseASCII() == "content-length") {
 					contentLength = Convert.toNumber(decodedResponse[1]);
 				};
 			};
@@ -171,8 +184,10 @@ HTTP.downloadFile = function(url, fileName, headers, mode, content) {
 				};
 			};
 			file.close();
+			socket.close();
 			return true;
 		};
+		socket.close();
 	};
 	return false;
 };
@@ -183,9 +198,13 @@ HTTP.post = function(url, data, headers, mode) {
 	var contentLength;
 	var host;
 	var response;
-	var header;
+	var scheme;
 
-	if(URL.getSchemeName(url).toUpperCaseASCII() != "HTTP") {
+	scheme = URL.getSchemeName(url);
+	if(Script.isNil(scheme)) {
+		return null;
+	};
+	if(scheme.toUpperCaseASCII() != "HTTP") {
 		return null;
 	};
 	host = URL.getHostNameAndPort(url);
@@ -193,7 +212,7 @@ HTTP.post = function(url, data, headers, mode) {
 		return null;
 	};
 
-	if(host.indexOf(":") < 0) {
+	if((host.indexOf(":") < 0) || (host.substring(host.length - 1, 1) == "]")) {
 		host += ":80";
 	};
 
@@ -238,7 +257,7 @@ HTTP.post = function(url, data, headers, mode) {
 			};
 			decodedResponse = this.decodeHeaderLine(response);
 			if(decodedResponse) {
-				if(decodedResponse[0] == "Content-Length") {
+				if(decodedResponse[0].toLowerCaseASCII() == "content-length") {
 					contentLength = Convert.toNumber(decodedResponse[1]);
 				};
 			};
@@ -264,9 +283,13 @@ HTTP.postRequest = function(url, data, headers, mode) {
 	var contentLength;
 	var host;
 	var response;
-	var header;
+	var scheme;
 
-	if(URL.getSchemeName(url).toUpperCaseASCII() != "HTTP") {
+	scheme = URL.getSchemeName(url);
+	if(Script.isNil(scheme)) {
+		return null;
+	};
+	if(scheme.toUpperCaseASCII() != "HTTP") {
 		return null;
 	};
 	host = URL.getHostNameAndPort(url);
@@ -274,7 +297,7 @@ HTTP.postRequest = function(url, data, headers, mode) {
 		return null;
 	};
 
-	if(host.indexOf(":") < 0) {
+	if((host.indexOf(":") < 0) || (host.substring(host.length - 1, 1) == "]")) {
 		host += ":80";
 	};
 
@@ -319,7 +342,7 @@ HTTP.postRequest = function(url, data, headers, mode) {
 			};
 			decodedResponse = this.decodeHeaderLine(response);
 			if(decodedResponse) {
-				if(decodedResponse[0] == "Content-Length") {
+				if(decodedResponse[0].toLowerCaseASCII() == "content-length") {
 					contentLength = Convert.toNumber(decodedResponse[1]);
 				};
 			};
